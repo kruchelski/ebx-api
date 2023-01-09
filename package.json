@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --coverage",
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
@@ -28,6 +28,7 @@
     "express": "^4.18.2"
   },
   "devDependencies": {
+    "jest": "^29.3.1",
     "nodemon": "^2.0.20"
   }
 }
