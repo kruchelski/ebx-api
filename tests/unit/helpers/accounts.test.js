@@ -1,5 +1,4 @@
-import { accountsHandler } from '../../../src/helpers';
-import { Account } from '../../../src/helpers/accounts';
+import { accountsHandler, Account } from '../../../src/helpers';
 
 describe('Tests the AccountsHandler methods and behaviors', () => {
   beforeEach(() => {
