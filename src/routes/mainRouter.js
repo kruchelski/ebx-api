@@ -17,3 +17,4 @@ const ROUTES = [
 routesUtils.registerRoutes(mainRouter, ROUTES);
 
 export default mainRouter;
+export { ROUTES as mainRoutes };

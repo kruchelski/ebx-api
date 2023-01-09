@@ -13,12 +13,19 @@ class Account {
   }
 }
 
-class AccountHandler {
+class AccountsHandler {
   constructor() {
     this.accounts = [];
   }
 
+  findAccountById(id) {
+    return this.accounts.find((account) => account.id === id);
+  }
+
   addAccount(accountDetails) {
+    const { id } = accountDetails;
+    const existingAccount = this.findAccountById(id);
+    if (existingAccount) return existingAccount;
     const account = new Account(accountDetails);
     this.accounts.push(account);
     return account;
@@ -30,10 +37,6 @@ class AccountHandler {
 
   listAccounts() {
     return this.accounts;
-  }
-
-  findAccountById(id) {
-    return this.accounts.find((account) => account.id === id);
   }
 
   getBalanceFromAccount(id) {
@@ -66,5 +69,6 @@ class AccountHandler {
   }
 }
 
-const accountsHandler = new AccountHandler();
+const accountsHandler = new AccountsHandler();
 export default accountsHandler;
+export { Account };
