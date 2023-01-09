@@ -4,13 +4,14 @@ import { routesUtils } from '../utils/index.js';
 
 const mainRouter = express.Router();
 
-const { health, reset, addAccount, getAllAccounts } = mainController;
+const { checkHealth, listAccounts, resetAccounts, getBalance, processAccountEvent } = mainController;
 
 const ROUTES = [
-  { path: '/health', method: 'get', controller: health },
-  { path: '/reset', method: 'post', controller: reset },
-  { path: '/add', method: 'get', controller: addAccount },
-  { path: '/list', method: 'get', controller: getAllAccounts },
+  { path: '/health', method: 'get', controller: checkHealth },
+  { path: '/accounts', method: 'get', controller: listAccounts },
+  { path: '/reset', method: 'post', controller: resetAccounts },
+  { path: '/balance', method: 'get', controller: getBalance },
+  { path: '/event', method: 'post', controller: processAccountEvent },
 ];
 
 routesUtils.registerRoutes(mainRouter, ROUTES);
