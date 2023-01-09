@@ -1,3 +1,3 @@
-import mainRouter from './mainRouter.js';
+import mainRouter, { mainRoutes } from './mainRouter.js';
 
-export { mainRouter };
+export { mainRouter, mainRoutes };
