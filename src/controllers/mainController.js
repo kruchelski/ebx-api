@@ -1,6 +1,6 @@
 import { accountsHandler } from '../helpers/index.js';
 
-const DEFAULT_ERROR_MSG = 'internal server error';
+const DEFAULT_ERROR_MSG = 'Internal server error';
 
 const checkHealth = (_, res) => {
   res.status(200).send('Server is up and running');
@@ -23,7 +23,7 @@ const getBalance = (req, res) => {
     if (balance === null) return res.status(404).json(0);
     res.status(200).json(balance);
   } catch (error) {
-    const { message = DEFAULT_ERROR_MSG } = error;
+    const message = error.message || DEFAULT_ERROR_MSG;
     res.status(500).send(message);
   }
 };
@@ -38,7 +38,7 @@ const depositValue = (req, res) => {
     const account = accountsHandler.deposit(destination, amount);
     res.status(201).send({ destination: account });
   } catch (error) {
-    const { message = DEFAULT_ERROR_MSG } = error;
+    const message = error.message || DEFAULT_ERROR_MSG;
     res.status(500).send(message);
   }
 };
@@ -54,7 +54,7 @@ const withdrawValue = (req, res) => {
     if (!account) return res.status(404).json(0);
     res.status(201).send({ origin: account });
   } catch (error) {
-    const { message = DEFAULT_ERROR_MSG } = error;
+    const message = error.message || DEFAULT_ERROR_MSG;
     res.status(500).send(message);
   }
 };
@@ -72,7 +72,7 @@ const transferValue = (req, res) => {
     const { originAccount, destinationAccount } = transferResult;
     res.status(201).send({ origin: originAccount, destination: destinationAccount });
   } catch (error) {
-    const { message = DEFAULT_ERROR_MSG } = error;
+    const message = error.message || DEFAULT_ERROR_MSG;
     res.status(500).send(message);
   }
 };
@@ -95,9 +95,18 @@ const processAccountEvent = (req, res) => {
 
     eventProcessor(req, res);
   } catch (error) {
-    const { message = DEFAULT_ERROR_MSG } = error;
+    const message = error.message || DEFAULT_ERROR_MSG;
     res.status(500).send(message);
   }
 };
 
-export { checkHealth, listAccounts, resetAccounts, getBalance, processAccountEvent };
+export {
+  checkHealth,
+  listAccounts,
+  resetAccounts,
+  getBalance,
+  processAccountEvent,
+  depositValue,
+  withdrawValue,
+  transferValue,
+};

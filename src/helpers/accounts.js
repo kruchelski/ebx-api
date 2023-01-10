@@ -63,6 +63,7 @@ class AccountsHandler {
 
   transfer(origin, destination, value) {
     const originAccount = this.withdraw(origin, value);
+
     if (originAccount === null) return null;
     const destinationAccount = this.deposit(destination, value);
     return { originAccount, destinationAccount };
