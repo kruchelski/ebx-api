@@ -7,7 +7,7 @@ A simple bank like API for testing purposes
 
 <!-- Infos -->
 <p align="center">
-  <img src="https://img.shields.io/static/v1?labelColor=381838&color=777777&label=created%20at&message=Sep%202021" alt="Creation Date" />
+  <img src="https://img.shields.io/static/v1?labelColor=381838&color=777777&label=created%20at&message=Jan%202023" alt="Creation Date" />
 
   <img src="https://img.shields.io/github/last-commit/kruchelski/ebx-api?label=updated%20at&labelColor=381838&color=777777" alt="Update Date" />
 
