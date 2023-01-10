@@ -8,7 +8,7 @@ const { checkHealth, listAccounts, resetAccounts, getBalance, processAccountEven
 
 const ROUTES = [
   { path: '/health', method: 'get', controller: checkHealth },
-  { path: '/accounts', method: 'get', controller: listAccounts },
+  { path: '/account', method: 'get', controller: listAccounts },
   { path: '/reset', method: 'post', controller: resetAccounts },
   { path: '/balance', method: 'get', controller: getBalance },
   { path: '/event', method: 'post', controller: processAccountEvent },
